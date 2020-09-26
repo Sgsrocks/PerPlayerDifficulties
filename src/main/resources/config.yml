@@ -1,0 +1,54 @@
+#The index of the default difficulty for new players that join the server. The first difficulty is index 0.
+#Default: 1
+default-difficulty: 1
+
+#This section controls the difficulties available to players, you can have as few as 1 or as many as 7 difficulties. Add or removes values from this section to customize. 
+difficulties:
+  #Difficulty key, must be unique.
+  easy:
+    #Display name of the difficulty, color codes using '&' are supported. This will be shown as the item name in /setdifficulty
+    display: '&a&lEasy'
+
+    #Description of the difficulty, color codes using '&' are supported. This will be shown in the item lore in /setdifficulty
+    description:
+      - '  &6&l* &aTake 25% less fall damage.'
+      - '  &6&l* &aTake 25% less damage from fire.'
+      - '  &6&l* &aTake 25% less damage from other players.'
+      - '  &6&l* &aTake 25% less damage from monsters.'
+
+    #Damage multipliers, these cotnrol how much damage a player receives when playing on this difficulty. 0.0 is no damage, 1.0 is normal damage, and 2.0 is double damage. Values must be positive.
+    #All values other than entity_attack are supported. entity_attack is instead split into two special values, pvp-multiplier and pve-multiplier which control damage from other players and mobs respectively.
+    #All available values can be found here: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/event/entity/EntityDamageEvent.DamageCause.html
+    fall-multiplier: 0.75
+    fire-multiplier: 0.75
+    pvp-multiplier: 0.75
+    pve-multiplier: 0.75
+    
+    #Should players on this difficulty lose hunger?
+    lose-hunger: true
+
+  normal:
+    display: '&e&lNormal'
+    description:
+      - '  &6&l* &aTake normal fall damage.'
+      - '  &6&l* &aTake normal damage from fire.'
+      - '  &6&l* &aTake normal damage from other players.'
+      - '  &6&l* &aTake normal damage from monsters.'
+    fall-multiplier: 1.0
+    fire-multiplier: 1.0
+    pvp-multiplier: 1.0
+    pve-multiplier: 1.0
+    lose-hunger: true
+    
+  hard:
+    display: '&c&lHard'
+    description:
+      - '  &6&l* &aTake 25% more fall damage.'
+      - '  &6&l* &aTake 25% more damage from fire.'
+      - '  &6&l* &aTake 25% more damage from other players.'
+      - '  &6&l* &aTake 25% more damage from monsters.'
+    fall-multiplier: 1.25
+    fire-multiplier: 1.25
+    pvp-multiplier: 1.25
+    pve-multiplier: 1.25
+    lose-hunger: true

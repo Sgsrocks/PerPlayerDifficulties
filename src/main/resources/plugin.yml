@@ -1,0 +1,19 @@
+name: PerPlayerDifficulty
+version: 1.0.0
+main: com.jishunamatata.perplayerdifficulty.PerPlayerDifficulty
+api-version: 1.16
+
+commands:
+  setdifficulty:
+    description: Command to change player difficulty
+  playerdifficulties:
+    usage: /blockmonsters [reload]
+    description: General command for this plugin.
+
+permissions:
+  perplayerdifficulty.setdifficulty:
+    description: Allow a player to change their difficulty
+    defualt: true
+  perplayerdifficulty.reload:
+    description: Allow a user to reload the config file.
+    
