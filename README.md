@@ -1,1 +1,1 @@
-Public repository for the spigot plugin PerPlayerDifficulty.
+Public repository for the spigot plugin PerPlayerDifficulties.
