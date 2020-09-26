@@ -7,7 +7,7 @@ commands:
   setdifficulty:
     description: Command to change player difficulty
   playerdifficulties:
-    usage: /blockmonsters [reload]
+    usage: /playerdifficulties [reload]
     description: General command for this plugin.
 
 permissions:
