@@ -46,6 +46,8 @@ public class ConfigManager {
 
 				difficulty.setLoseHunger(difficultySection.getBoolean(diff + ".lose-hunger", true));
 
+				difficulty.setExpMultiplier(difficultySection.getDouble(diff + ".mob-experience-multiplier", 1d));
+
 				for (DamageCause cause : DamageCause.values()) {
 					if (cause == DamageCause.ENTITY_ATTACK)
 						continue;
@@ -66,6 +68,7 @@ public class ConfigManager {
 
 	public void reloadConfig() {
 		difficultyManager.clearDifficulties();
+		difficultyManager.flushCache();
 		loadConfig();
 	}
 

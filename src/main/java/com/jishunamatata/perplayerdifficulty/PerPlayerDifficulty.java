@@ -9,6 +9,7 @@ import com.jishunamatata.perplayerdifficulty.commands.SetDifficultyCommand;
 import com.jishunamatata.perplayerdifficulty.gui.CustomInventoryManager;
 import com.jishunamatata.perplayerdifficulty.listeners.DamageListener;
 import com.jishunamatata.perplayerdifficulty.listeners.HungerListener;
+import com.jishunamatata.perplayerdifficulty.listeners.MobListener;
 
 public class PerPlayerDifficulty extends JavaPlugin {
 
@@ -21,7 +22,8 @@ public class PerPlayerDifficulty extends JavaPlugin {
 		pm.registerEvents(new CustomInventoryManager(), this);
 		pm.registerEvents(new DamageListener(difficultyManager), this);
 		pm.registerEvents(new HungerListener(difficultyManager), this);
-		
+		pm.registerEvents(new MobListener(difficultyManager), this);
+
 		getCommand("setdifficulty").setExecutor(new SetDifficultyCommand(difficultyManager));
 		getCommand("playerdifficulties").setExecutor(new PlayerDifficultyCommand(configManager));
 	}

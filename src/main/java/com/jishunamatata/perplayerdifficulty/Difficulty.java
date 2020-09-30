@@ -14,7 +14,7 @@ public class Difficulty {
 	private String display;
 	private List<String> description = new ArrayList<String>();
 	private Map<DamageCause, Double> multiplierMap = new EnumMap<DamageCause, Double>(DamageCause.class);
-	private double pvpMultiplier, pveMultiplier;
+	private double pvpMultiplier, pveMultiplier, expMultiplier;
 	private boolean loseHunger;
 
 	public String getDisplayName() {
@@ -65,6 +65,14 @@ public class Difficulty {
 
 	public void setLoseHunger(boolean loseHunger) {
 		this.loseHunger = loseHunger;
+	}
+
+	public double getExpMultiplier() {
+		return expMultiplier;
+	}
+
+	public void setExpMultiplier(double expMultiplier) {
+		this.expMultiplier = expMultiplier;
 	}
 
 }

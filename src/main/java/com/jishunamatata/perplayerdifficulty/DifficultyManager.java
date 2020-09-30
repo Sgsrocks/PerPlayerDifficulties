@@ -74,4 +74,8 @@ public class DifficultyManager {
 		this.difficulties.clear();
 	}
 
+	public void flushCache() {
+		this.playerCache.clear();
+	}
+
 }
