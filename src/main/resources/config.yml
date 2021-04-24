@@ -1,6 +1,7 @@
 #The index of the default difficulty for new players that join the server. The first difficulty is index 0.
 #Default: 1
 default-difficulty: 1
+inventory-name: '&0&lSelect Difficulty'
 
 #This section controls the difficulties available to players, you can have as few as 1 or as many as 7 difficulties. Add or removes values from this section to customize. 
 difficulties:

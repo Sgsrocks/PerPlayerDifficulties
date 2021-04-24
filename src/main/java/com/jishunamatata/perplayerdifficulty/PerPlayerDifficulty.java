@@ -24,7 +24,7 @@ public class PerPlayerDifficulty extends JavaPlugin {
 		pm.registerEvents(new HungerListener(difficultyManager), this);
 		pm.registerEvents(new MobListener(difficultyManager), this);
 
-		getCommand("setdifficulty").setExecutor(new SetDifficultyCommand(difficultyManager));
+		getCommand("setdifficulty").setExecutor(new SetDifficultyCommand(configManager, difficultyManager));
 		getCommand("playerdifficulties").setExecutor(new PlayerDifficultyCommand(configManager));
 	}
 

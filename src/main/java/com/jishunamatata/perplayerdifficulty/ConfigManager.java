@@ -13,9 +13,13 @@ import org.bukkit.plugin.Plugin;
 
 import com.google.common.io.ByteStreams;
 
+import net.md_5.bungee.api.ChatColor;
+
 public class ConfigManager {
 	private final Plugin plugin;
 	private final DifficultyManager difficultyManager;
+
+	private String inventoryName;
 
 	public ConfigManager(Plugin plugin, DifficultyManager difficultyManager) {
 		this.plugin = plugin;
@@ -30,6 +34,9 @@ public class ConfigManager {
 	public void loadConfig() {
 		File file = copyResource(this.plugin, "config.yml");
 		YamlConfiguration config = YamlConfiguration.loadConfiguration(file);
+
+		this.inventoryName = ChatColor.translateAlternateColorCodes('&',
+				config.getString("inventory-name", ChatColor.BLACK.toString() + ChatColor.BOLD + "Select Difficulty"));
 
 		difficultyManager.setDefaultDifficulty(config.getInt("default-difficulty", 1));
 
@@ -70,6 +77,10 @@ public class ConfigManager {
 		difficultyManager.clearDifficulties();
 		difficultyManager.flushCache();
 		loadConfig();
+	}
+
+	public String getInventoryName() {
+		return inventoryName;
 	}
 
 	// saveDefaultConfig doesn't copy comments, this will

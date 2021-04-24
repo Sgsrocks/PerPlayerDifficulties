@@ -9,6 +9,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 
+import com.jishunamatata.perplayerdifficulty.ConfigManager;
 import com.jishunamatata.perplayerdifficulty.Difficulty;
 import com.jishunamatata.perplayerdifficulty.DifficultyManager;
 import com.jishunamatata.perplayerdifficulty.ItemBuilder;
@@ -18,9 +19,11 @@ import com.jishunamatata.perplayerdifficulty.gui.CustomInventoryManager;
 
 public class SetDifficultyCommand implements CommandExecutor {
 
-	private DifficultyManager difficultyManager;
+	private final DifficultyManager difficultyManager;
+	private final ConfigManager configManager;
 
-	public SetDifficultyCommand(DifficultyManager difficultyManager) {
+	public SetDifficultyCommand(ConfigManager configManager, DifficultyManager difficultyManager) {
+		this.configManager = configManager;
 		this.difficultyManager = difficultyManager;
 	}
 
@@ -37,8 +40,7 @@ public class SetDifficultyCommand implements CommandExecutor {
 		}
 
 		Player player = (Player) sender;
-		CustomInventory inv = new CustomInventory(null, 27,
-				"" + ChatColor.BLACK + ChatColor.BOLD + "Select Difficulty");
+		CustomInventory inv = new CustomInventory(null, 27, this.configManager.getInventoryName());
 		inv.addClickConsumer(this::onInventoryClick);
 
 		ItemStack border = new ItemBuilder(Material.LIGHT_BLUE_STAINED_GLASS_PANE).withName(" ").build();
